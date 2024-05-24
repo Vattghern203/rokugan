@@ -1,3 +1,5 @@
+import { dsplayImage } from "./utils/displayImage"
+
 interface RokuganInit extends IntersectionObserverInit {
     unobserveOnShow?: boolean
 }
@@ -9,7 +11,7 @@ class Rokugan {
         public unobserveOnShow?: boolean
     ) {}
 
-    observe(targetList: NodeListOf<HTMLElement | Element>) {
+    observe(targetList: NodeListOf<HTMLElement | Element | HTMLImageElement>) {
 
         const observer = new IntersectionObserver(
             entries => {
@@ -24,6 +26,13 @@ class Rokugan {
                     if (this.unobserveOnShow == true && entry.isIntersecting) {
 
                         observer.unobserve(element)
+                    }
+
+                    const imageElement = entry.target as HTMLImageElement
+
+                    if (entry.isIntersecting && imageElement.complete === true) {
+
+                        dsplayImage(3)
                     }
                 })
             },
@@ -52,7 +61,7 @@ const sixEyes = new Rokugan({
     threshold: 1,
 })
 
-const games = document.querySelectorAll("main article")
+const games = document.querySelectorAll("#image-container > *")
 
 console.log(games)
 

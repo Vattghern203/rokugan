@@ -1,4 +1,4 @@
-import { dsplayImage } from "./utils/displayImage";
+"use strict";
 class Rokugan {
     options;
     unobserveOnShow;
@@ -14,10 +14,6 @@ class Rokugan {
                 element.dataset.rkShow = entry.isIntersecting ? "true" : "false";
                 if (this.unobserveOnShow == true && entry.isIntersecting) {
                     observer.unobserve(element);
-                }
-                const imageElement = entry.target;
-                if (entry.isIntersecting && imageElement.complete === true) {
-                    dsplayImage(3);
                 }
             });
         }, this.options);
@@ -36,6 +32,6 @@ const sixEyes = new Rokugan({
     rootMargin: "0px",
     threshold: 1,
 });
-const games = document.querySelectorAll("#image-container > *");
+const games = document.querySelectorAll("main article");
 console.log(games);
 sixEyes.observe(games);

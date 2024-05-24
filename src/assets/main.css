@@ -6,3 +6,20 @@ html {
 
     color-scheme: dark light;
 }
+
+
+
+/* IMAGE RELATED */
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+#image-container {
+
+    width: 100%;
+    column-count: 3;
+    
+}

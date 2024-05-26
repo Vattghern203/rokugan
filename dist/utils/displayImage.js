@@ -33,9 +33,9 @@ const mugen = async () => {
     await dsplayImage(10);
     const imgs = document.querySelectorAll('.rokugan');
     imgs.forEach((img) => {
-        if ((img.complete !== false) && (img.dataset.rkShow === "true")) {
+        if ((img.complete === false) && (img.dataset.rkShow === "true")) {
             dsplayImage(3);
         }
     });
 };
-mugen();
+export { mugen };

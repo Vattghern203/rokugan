@@ -1,5 +1,7 @@
 /* import { getRandomImage } from "./fetchImage" */
 
+
+
 const imageContainer = document.querySelector('#image-container')
 
 async function getRandomImage() {
@@ -56,11 +58,11 @@ const mugen = async () => {
 
     imgs.forEach((img) => {
 
-        if ((img.complete !== false) && (img.dataset.rkShow === "true")) {
+        if ((img.complete === false) && (img.dataset.rkShow === "true")) {
 
            dsplayImage(3)
         }
     })
 }
 
-mugen()
+export { mugen }

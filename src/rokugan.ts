@@ -1,5 +1,3 @@
-import { dsplayImage } from "./utils/displayImage"
-
 interface RokuganInit extends IntersectionObserverInit {
     unobserveOnShow?: boolean
 }
@@ -8,61 +6,50 @@ class Rokugan {
 
     constructor(
         public options: RokuganInit = {},
-        public unobserveOnShow?: boolean
-    ) {}
+        public callbackFn?: () => void // Function to be called when intersecting
+
+    ) { }
 
     observe(targetList: NodeListOf<HTMLElement | Element | HTMLImageElement>) {
 
-        const observer = new IntersectionObserver(
-            entries => {
+        try {
 
-                entries.forEach(entry => {
+            const observer = new IntersectionObserver(
+                entries => {
 
-                    const element = entry.target as HTMLElement
+                    entries.forEach(entry => {
 
-                    element.classList.toggle('rk-show', entry.isIntersecting)
-                    element.dataset.rkShow = entry.isIntersecting ? "true" : "false"
+                        const element = entry.target as HTMLElement
 
-                    if (this.unobserveOnShow == true && entry.isIntersecting) {
+                        element.classList.toggle('rk-show', entry.isIntersecting)
+                        element.dataset.rkShow = entry.isIntersecting ? "true" : "false"
 
-                        observer.unobserve(element)
-                    }
+                        if (this.options.unobserveOnShow == true && entry.isIntersecting) {
 
-                    const imageElement = entry.target as HTMLImageElement
+                            observer.unobserve(element)
+                        }
 
-                    if (entry.isIntersecting && imageElement.complete === true) {
+                        const imageElement = entry.target as HTMLImageElement
 
-                        dsplayImage(3)
-                    }
-                })
-            },
+                        if (entry.isIntersecting && imageElement.complete === true) {
 
-            this.options
-        )
+                            this.callbackFn ? this.callbackFn() : null
+                        }
+                    })
+                },
 
-        targetList.forEach(
-            (element) => observer.observe(element)
-        )
+                this.options
+            )
+
+            targetList.forEach(
+                (element) => observer.observe(element)
+            )
+
+        }
+
+        catch (error) { console.error(error) }
+
     }
 }
 
-const observerOptions: RokuganInit = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 1,
-    unobserveOnShow: false
-}
-
-//export { Rokugan, RokuganInit }
-
-const sixEyes = new Rokugan({
-    root: null,
-    rootMargin: "0px",
-    threshold: 1,
-})
-
-const games = document.querySelectorAll("#image-container > *")
-
-console.log(games)
-
-sixEyes.observe(games)
+export { Rokugan, RokuganInit }

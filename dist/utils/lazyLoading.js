@@ -10,6 +10,8 @@ const observerOptions = {
 };
 const rokugan = new Rokugan(observerOptions);
 rokugan.observe(articles);
+const article = document.getElementById('first');
+articles ? rokugan.observe(articles) : null;
 export function lazyLoadingHandler(elementList) {
     const srcList = [];
     elementList.forEach((element, key) => {

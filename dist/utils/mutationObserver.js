@@ -1,7 +1,6 @@
-"use strict";
 const config = { attributes: true, childList: true, subtree: true };
-const targeNode = document.querySelector('#image-container');
-const mutationCheck = (mutationList) => {
+const targetNode = document.querySelector('#image-container');
+function mutationCheck(mutationList) {
     for (const mutation of mutationList) {
         if (mutation.type === "childList") {
             console.log('New child has born');
@@ -10,8 +9,12 @@ const mutationCheck = (mutationList) => {
             console.log(`The ${mutation.attributeName} attribute was modified.`);
         }
     }
-};
-const mutationObserver = new MutationObserver(mutationCheck);
-if (targeNode) {
-    mutationObserver.observe(targeNode, config);
 }
+const mutationObserver = new MutationObserver(mutationCheck);
+if (targetNode) {
+    mutationObserver.observe(targetNode, config);
+}
+else {
+    console.error('The target node was not found in the document.');
+}
+export {};

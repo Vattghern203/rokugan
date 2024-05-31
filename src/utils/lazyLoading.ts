@@ -19,6 +19,10 @@ const rokugan = new Rokugan(
 
 rokugan.observe(articles)
 
+const article = document.getElementById('first')
+
+articles ? rokugan.observe(articles) : null
+
 type lazyImaageType = {
     id: number,
     src: string,

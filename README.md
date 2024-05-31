@@ -51,4 +51,4 @@ async function generateImage(): Promise<void> {
 }
 ```
 
-*"In all the heavens and the earth, I Alone Am The Honored One"*
+*"Throughout Heaven and Earth, I Alone Am The Honored One"*

@@ -1,5 +1,6 @@
 import { Rokugan } from "../rokugan.js";
 import { mugen } from "./displayImage.js";
+import { generateImage } from "./generateImage.js";
 mugen();
 const articles = document.querySelectorAll('img');
 const observerOptions = {
@@ -8,7 +9,7 @@ const observerOptions = {
     threshold: 0.75,
     unobserveOnShow: false
 };
-const rokugan = new Rokugan(observerOptions);
+const rokugan = new Rokugan(observerOptions, generateImage);
 rokugan.observe(articles);
 const article = document.getElementById('first');
 articles ? rokugan.observe(articles) : null;

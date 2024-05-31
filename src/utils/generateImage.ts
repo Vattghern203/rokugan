@@ -3,7 +3,7 @@ const imageURL = 'https://sportshub.cbsistatic.com/i/2023/09/27/4c971d0d-bf91-49
 async function generateImage(): Promise<void> {
     const parentRoot = document.querySelector('#image-container');
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 2; i++) {
         await new Promise(resolve => setTimeout(resolve, 2000));
         
         const newImg = document.createElement('img');
@@ -15,4 +15,4 @@ async function generateImage(): Promise<void> {
     }
 }
 
-generateImage();
+export { generateImage }

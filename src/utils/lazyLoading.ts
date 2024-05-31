@@ -2,6 +2,8 @@ import { Rokugan, RokuganInit } from "../rokugan.js"
 
 import { mugen } from "./displayImage.js"
 
+import { generateImage } from "./generateImage.js"
+
 mugen()
 
 const articles = document.querySelectorAll('img')
@@ -15,6 +17,7 @@ const observerOptions: RokuganInit = {
 
 const rokugan = new Rokugan(
     observerOptions,
+    generateImage
 )
 
 rokugan.observe(articles)

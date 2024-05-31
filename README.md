@@ -1,6 +1,8 @@
 # Rokugan
 
-A simple IntersectionObserver implementation and tribute to the Honored One.
+A simple IntersectionObserver amd MutationObserver implementation to achieve lazy loading and dynamically show elements on screen. 
+
+This also a tribute to the Honored One.
 
 ![https://raw.githubusercontent.com/Vattghern203/rokugan/main/.github/jujutsu-kaisen-gojo.webp](https://raw.githubusercontent.com/Vattghern203/rokugan/main/.github/jujutsu-kaisen-gojo.webp)
 
@@ -12,9 +14,9 @@ A simple IntersectionObserver implementation and tribute to the Honored One.
 import { Rokugan } from './path/to/rokugan';
 ```
 
-2. Create a list of elements that will be observed.
+2. Create a list of elements that will be observed (```NodeListOf<Element | ImageElement | HTMLElement>```).
 
-```js
+```ts
 // Example
 elements = document.querySelectorAll('body .card')
 ``` 
@@ -26,11 +28,11 @@ const rokuganOptions: RokuganInit = {
     root: null,
     rootMargin: "0px",
     threshold: 0.75,
-    unobserveOnShow: false
+    unobserveOnShow: false // This must be false to lazy loading works
 }
 ```
 
-4. Create a function to be triggered when the user reachs the last element.
+4. Create a function to be triggered when the user reachs the last loaded element on the viewport.
 
 ```ts
 // Example

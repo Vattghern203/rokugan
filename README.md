@@ -1,6 +1,8 @@
 # Rokugan
 
-A simple IntersectionObserver implementation.
+A simple IntersectionObserver implementation and tribute to the Honored One.
+
+![https://raw.githubusercontent.com/Vattghern203/rokugan/main/.github/jujutsu-kaisen-gojo.webp](https://raw.githubusercontent.com/Vattghern203/rokugan/main/.github/jujutsu-kaisen-gojo.webp)
 
 ## Getting Started
 
@@ -50,5 +52,7 @@ async function generateImage(): Promise<void> {
     }
 }
 ```
+
+![https://github.com/Vattghern203/rokugan/blob/main/.github/jujutsu-kaisen-gojo.gif](https://github.com/Vattghern203/rokugan/blob/main/.github/jujutsu-kaisen-gojo.gif?raw=true)
 
 *"Throughout Heaven and Earth, I Alone Am The Honored One"*

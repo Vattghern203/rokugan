@@ -1,8 +1,11 @@
 {
   "name": "rokugan",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**"
+  ],
   "type": "module",
   "license": "AGPL-version-3.0",
   "private": false,
@@ -17,7 +20,9 @@
     "url": "https://github.com/Vattghern203/rokugan"
   },
   "bugs": "https://github.com/Vattghern203/rokugan/issues",
-  "keywords": [],
+  "keywords": [
+    "mutationObserver", "intersectionObserver", "lazy-loading"
+  ],
   "author": {
     "name": "vattghern203"
   },

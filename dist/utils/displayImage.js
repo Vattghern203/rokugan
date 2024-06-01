@@ -1,4 +1,3 @@
-/* import { getRandomImage } from "./fetchImage" */
 const imageContainer = document.querySelector('#image-container');
 async function getRandomImage() {
     try {

@@ -1,7 +1,3 @@
-/* import { getRandomImage } from "./fetchImage" */
-
-import { getImage } from "./apiClient.js"
-
 const imageContainer = document.querySelector('#image-container')
 
 async function getRandomImage() {
